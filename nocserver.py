@@ -38,6 +38,7 @@ def generate_test_ring(fname, xsz):
 		file.write(str(random.randint(0,255)))
 		file.write("\n")
 	file.close()
+	system("./espserver.py ring "+fname+".txt")
 
 def generate_test_mesh(fname, xsz, ysz):
 	file = open(fname+".txt", "w")
@@ -53,6 +54,7 @@ def generate_test_mesh(fname, xsz, ysz):
 		file.write(str(random.randint(0,255)))
 		file.write("\n")
 	file.close()
+	system("./espserver.py mesh "+fname+".txt")
 
 @sio.on('simulate')
 async def print_message(sid, data):
